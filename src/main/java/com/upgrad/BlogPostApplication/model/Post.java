@@ -1,12 +1,24 @@
 package com.upgrad.BlogPostApplication.model;
 
+import org.springframework.stereotype.Controller;
+
+import javax.persistence.*;
 import java.util.Date;
 
 //pojo->plain old java object
+@Entity
+@Table(name = "posts")
 public class Post {
     //components of the post
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "body")
     private String body;
+    @Column(name = "date")
     private Date date;
 
     //getter and setter for
