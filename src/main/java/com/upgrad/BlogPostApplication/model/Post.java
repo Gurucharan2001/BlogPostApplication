@@ -11,7 +11,7 @@ import java.util.Date;
 public class Post {
     //components of the post
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
     @Column(name = "title")
@@ -22,6 +22,15 @@ public class Post {
     private Date date;
 
     //getter and setter for
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
