@@ -3,7 +3,9 @@ package com.upgrad.BlogPostApplication.model;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 //pojo->plain old java object
 @Entity
@@ -14,12 +16,26 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
+
     @Column(name = "title")
     private String title;
+
     @Column(name = "body")
     private String body;
+
     @Column(name = "date")
     private Date date;
+
+    //relationship
+    //posts to user(many to one)
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
+
+    //relationship between posts and category(Many to Many)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Category> categories = new ArrayList<>();
+
+
 
     //getter and setter for
 
