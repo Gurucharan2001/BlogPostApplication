@@ -30,12 +30,14 @@ public class UserController {
     //POST request to /users/login
     @RequestMapping(method = RequestMethod.POST,value = "/users/login")
     public String loginUser(User user){
+        User exsitingUser = userService.login(user);
         //check if credentials are match
-        if(userService.login(user)){
+        if(exsitingUser == null){
+            System.out.println("USER DOES NOT EXIST");
+            return "/users/login";
+        }else{
+            System.out.println("USER FOUND");
             return "redirect:/posts";
-        }
-        else {
-            return "users/login";
         }
     }
 //for ui

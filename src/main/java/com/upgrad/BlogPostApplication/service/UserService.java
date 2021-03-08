@@ -11,13 +11,15 @@ public class UserService {
     @Autowired
     private userRepository userRepository;
 
-    public boolean login(User user){
-        if(user.getUsername().equals("Gurucharan") && user.getPassword().equals("Guru@2001")){
-            return true;
-        }else{
-            return false;
+    public User login(User user){
+        User existingUser = userRepository.checkCredentials(user.getUsername(),user.getPassword());
+        if(existingUser == null){
+            return null;
         }
-       // userRepository.login(user);
+        else{
+            return existingUser;
+        }
+
     }
     public void registerUser(User newUser){
         userRepository.registerUser(newUser);
