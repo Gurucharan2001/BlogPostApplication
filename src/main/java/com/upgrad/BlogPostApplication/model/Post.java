@@ -37,7 +37,24 @@ public class Post {
 
 
 
-    //getter and setter for
+    //getter and setter for relation
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+//getter and setter for
 
     public int getId() {
         return id;

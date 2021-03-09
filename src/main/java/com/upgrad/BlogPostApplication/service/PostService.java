@@ -19,15 +19,24 @@ public class PostService {
     private postRepository postRepository;
 
 
-    public List<Post> getAllPosts(){
-        return postRepository.getAllPosts();
+    public List<Post> getAllPosts(Integer userId){
+        return postRepository.getAllPosts(userId);
     }
 
     public void createPost(Post newPost){
         postRepository.createPost(newPost);
     }
 
+    public Post getPost(Integer postId){
+        return postRepository.getPost(postId);
+    }
+
+    public void updatePost(Post updatedPost) {
+        postRepository.updatePost(updatedPost);
+    }
+
     public void deletePost(Integer postId){
         postRepository.deletePost(postId);
     }
+
 }
